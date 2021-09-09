@@ -1,0 +1,27 @@
+ion-header{
+    ion-avatar{
+      padding:10px
+    }
+    ion-title{
+      padding: 0px 0px;
+      margin-top: 5px;
+    }
+  }
+  .message{
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+    white-space: pre-wrap;
+  }
+  .my-message{
+    background: linear-gradient(179deg , #098fa5, #0a6371);
+    color: white;
+  }
+  .other-message{
+    background: linear-gradient(181deg , #14398c, #441cbd);
+    color: white;
+  }
+  .time{
+  font-size: small;
+  color: #dfdfdf;
+  }

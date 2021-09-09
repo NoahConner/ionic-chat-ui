@@ -1,0 +1,13 @@
+{
+  "name": "chatAppIonic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "",
+      "proxyUrl": "https://localhost:3001/"
+    }
+  ]
+}

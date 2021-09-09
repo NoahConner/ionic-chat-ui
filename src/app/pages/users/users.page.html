@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>users</ion-title>
+    <ion-button shape="round" color="primary" slot="start" size="small" (click)="publicChatt()">Public Room</ion-button>
+    <ng-container *ngFor="let user of users">
+    <ion-avatar slot="end" (click)="remove()" *ngIf="cUser == user.name">
+      <img src="{{user.image}}">
+    </ion-avatar>
+  </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Online Users
+    </ion-list-header>
+
+    <ng-container *ngFor="let user of users">
+      <ion-item class="item ios in-list ion-focusable hydrated item-label"  (click)="chat(user.name,user.image)" *ngIf="cUser != user.name && user.active_status == 'connect'">
+        <ion-avatar slot="start" class="ios hydrated">
+          <img src="{{user.image}}">
+        </ion-avatar>
+        <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
+          <h2>{{user.name}}</h2>
+          <h3>{{user.status}}</h3>
+        </ion-label>
+        <ion-badge color="primary" *ngIf="user.msgsCount > 0">{{user.msgsCount}}</ion-badge>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>

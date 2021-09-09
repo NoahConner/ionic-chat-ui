@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Public Chat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+  <ion-row *ngFor="let msg of messages">
+    <ion-col offset="3" size="9" *ngIf="currentUser === msg.user" class="message my-message">
+      <b> You </b> <br>
+      <span> {{msg.msg}} </span>
+      <div class="time ion-text-right">
+        <br> {{msg.created | date:'short'}}
+      </div>
+    </ion-col>
+
+    <ion-col size="9" *ngIf="currentUser != msg.user" class="message other-message">
+      <b> {{msg.user}} </b><br>
+      <span> {{msg.msg}} </span>
+      <div class="time ion-text-right">
+        <br> {{msg.created | date:'short'}}
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-item>
+      <ion-input placeholder="Enter your message" [(ngModel)]="newMessage"></ion-input>
+      <ion-icon name="send" slot="end" (click)="sendMessage(newMessage)"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

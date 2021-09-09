@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br/>
+  <br/>
+<h1 class="ion-padding">
+  Registeration
+</h1>
+<br/><br/>
+<form [formGroup]="testForm"  (ngSubmit)="submitForm()">
+<ion-item>
+  <ion-label position="floating">Name</ion-label>
+  <ion-input formControlName="name"></ion-input>
+</ion-item>
+<span class="error " *ngIf="isSubmitted && f.name.errors?.required">
+  Name is required.
+</span>
+<ion-item>
+  <ion-label position="floating">Email</ion-label>
+  <ion-input formControlName="email"></ion-input>
+</ion-item>
+<span class="error " *ngIf="isSubmitted && f.email.errors?.required">
+  Email is required.
+</span>
+<span class="error ion-padding" *ngIf="isSubmitted && f.email.errors?.pattern">
+  Please provide valid email id.
+</span>
+<ion-item>
+  <ion-label position="floating">Status</ion-label>
+  <ion-input formControlName="status"></ion-input>
+</ion-item>
+<span class="error " *ngIf="isSubmitted && f.status.errors?.required">
+  Status is required.
+</span>
+<ion-item>
+  <ion-label position="floating">Password</ion-label>
+  <ion-input type="password" formControlName="password"></ion-input>
+</ion-item>
+<span class="error " *ngIf="isSubmitted && f.password.errors?.required">
+  Password is required.
+</span>
+<ion-item (click)="selectImage()">
+  <ion-label position="floating">Image Link</ion-label>
+  <ion-input formControlName="image"></ion-input>
+</ion-item>
+<span class="error " *ngIf="isSubmitted && f.image.errors?.required">
+  Image Link is required.
+</span>
+
+<div  class="ion-padding">
+  <ion-button expand="block" (click)="selectImage()">Upload Profile Pic</ion-button>
+  <br/>
+  <br/>
+  <ion-button expand="block" type="submit">Submit</ion-button>
+</div>
+</form>
+
+
+<img src="{{croppedImagePath}}" alt="">
+
+</ion-content>
